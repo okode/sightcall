@@ -7,16 +7,17 @@
 //
 
 #import "AppDelegate.h"
+#import <LSUniversalSDK/LSUniversalSDK.h>
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) LSUniversal* lsUniversal;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.lsUniversal = [[LSUniversal alloc] init];
     return YES;
 }
 
