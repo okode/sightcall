@@ -20,12 +20,21 @@
 
     AppDelegate* delegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
     delegate.lsUniversal.delegate = self;
-    
 }
 
 -(void) connectionEvent:(lsConnectionStatus_t)status
 {
     NSLog(@"connectionEvent");
+    LSUniversal* lsUniversal = ((AppDelegate*) [[UIApplication sharedApplication] delegate]).lsUniversal;
+    switch (status) {
+        case lsConnectionStatus_callActive:
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:lsUniversal.callViewController animated:YES completion:nil];
+            });
+        }   break;
+        default: break;
+    }
 }
 
 - (void)connectionError:(lsConnectionError_t)error
