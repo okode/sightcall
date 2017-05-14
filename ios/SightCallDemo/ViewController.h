@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <LSUniversalSDK/LSUniversalSDK.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <LSUniversalDelegate>
 
 
 @end
