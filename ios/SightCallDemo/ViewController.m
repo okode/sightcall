@@ -27,13 +27,21 @@
     NSLog(@"connectionEvent");
     LSUniversal* lsUniversal = ((AppDelegate*) [[UIApplication sharedApplication] delegate]).lsUniversal;
     switch (status) {
+        case lsConnectionStatus_idle: NSLog(@"IDLE"); break;
+        case lsConnectionStatus_agentConnected: NSLog(@"Agent connected"); break;
+        case lsConnectionStatus_agentConnecting: NSLog(@"Agent connecting"); break;
+        case lsConnectionStatus_connecting: NSLog(@"Connecting"); break;
+        case lsConnectionStatus_active: NSLog(@"Active"); break;
+        case lsConnectionStatus_calling: NSLog(@"Calling"); break;
         case lsConnectionStatus_callActive:
         {
+            NSLog(@"Call active");
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self presentViewController:lsUniversal.callViewController animated:YES completion:nil];
             });
-        }   break;
-        default: break;
+        }; break;
+        case lsConnectionStatus_disconnecting: NSLog(@"Disconnecting"); break;
+        case lsConnectionStatus_networkLoss: NSLog(@"Network loss"); break;
     }
 }
 
