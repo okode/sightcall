@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import <LSUniversalSDK/LSUniversalSDK.h>
 
 @interface AppDelegate ()
-@property (strong, nonatomic) LSUniversal* lsUniversal;
+
 @end
 
 @implementation AppDelegate
