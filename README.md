@@ -1,2 +1,4 @@
-# sightcall
+SightCall Demo
+==============
+
 SightCall Multiplatform Demo
