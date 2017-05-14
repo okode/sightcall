@@ -13,8 +13,23 @@
 		3EEECF971EC89D1E0046B3A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEECF951EC89D1E0046B3A1 /* Main.storyboard */; };
 		3EEECF991EC89D1E0046B3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EEECF981EC89D1E0046B3A1 /* Assets.xcassets */; };
 		3EEECF9C1EC89D1E0046B3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEECF9A1EC89D1E0046B3A1 /* LaunchScreen.storyboard */; };
-		3EFAC28E1EC89EBA00B971A2 /* LSUniversalSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */; };
+		3EFAC2921EC8A03F00B971A2 /* LSUniversalSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */; };
+		3EFAC2931EC8A03F00B971A2 /* LSUniversalSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3EFAC2941EC8A03F00B971A2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3EFAC2931EC8A03F00B971A2 /* LSUniversalSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3EEECF891EC89D1E0046B3A1 /* SightCallDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SightCallDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EFAC28E1EC89EBA00B971A2 /* LSUniversalSDK.framework in Frameworks */,
+				3EFAC2921EC8A03F00B971A2 /* LSUniversalSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +116,7 @@
 				3EEECF851EC89D1E0046B3A1 /* Sources */,
 				3EEECF861EC89D1E0046B3A1 /* Frameworks */,
 				3EEECF871EC89D1E0046B3A1 /* Resources */,
+				3EFAC2941EC8A03F00B971A2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
