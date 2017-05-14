@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <LSUniversalSDK/LSUniversalSDK.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) LSUniversal* lsUniversal;
-
 @end
 

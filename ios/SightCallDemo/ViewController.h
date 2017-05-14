@@ -10,7 +10,6 @@
 #import <LSUniversalSDK/LSUniversalSDK.h>
 
 @interface ViewController : UIViewController <LSUniversalDelegate>
-
-
+@property (strong, nonatomic) LSUniversal* lsUniversal;
 @end
 

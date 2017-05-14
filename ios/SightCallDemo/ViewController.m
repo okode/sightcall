@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -17,15 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    AppDelegate* delegate = (AppDelegate*) [[UIApplication sharedApplication] delegate];
-    delegate.lsUniversal.delegate = self;
+    self.lsUniversal = [[LSUniversal alloc] init];
+    self.lsUniversal.delegate = self;
 }
 
 -(void) connectionEvent:(lsConnectionStatus_t)status
 {
-    NSLog(@"connectionEvent");
-    LSUniversal* lsUniversal = ((AppDelegate*) [[UIApplication sharedApplication] delegate]).lsUniversal;
     switch (status) {
         case lsConnectionStatus_idle: NSLog(@"IDLE"); break;
         case lsConnectionStatus_agentConnected: NSLog(@"Agent connected"); break;
@@ -37,7 +33,7 @@
         {
             NSLog(@"Call active");
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self presentViewController:lsUniversal.callViewController animated:YES completion:nil];
+                [self presentViewController:self.lsUniversal.callViewController animated:YES completion:nil];
             });
         }; break;
         case lsConnectionStatus_disconnecting: NSLog(@"Disconnecting"); break;
@@ -57,7 +53,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
