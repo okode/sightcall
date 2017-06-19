@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SightCallDemo</string>
+    <string name="universal_feature_deeplink_scheme">sightcall</string>
+    <bool name="universal_feature_fcm">true</bool>
+</resources>

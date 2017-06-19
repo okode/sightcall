@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "583487669644",
+    "project_id": "sightcalldemo"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583487669644:android:75fdf2f0c978ee7b",
+        "android_client_info": {
+          "package_name": "com.okode.sightcalldemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583487669644-jfea0e7pmd2e39cvptskvuvsorqct170.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx_jUdEHM3Z1NUgbouucB-wN5wazzq9HE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
