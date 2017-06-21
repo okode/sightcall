@@ -25,6 +25,7 @@ import net.rtccloud.sdk.Event;
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtInv;
+    private EditText txtUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Universal.agent().setDefaultEnvironment(Environment.PPR);
         setContentView(R.layout.activity_main);
         this.txtInv = (EditText) findViewById(R.id.txtInv);
+        this.txtUrl = (EditText) findViewById(R.id.txtURL);
     }
 
     @Override
@@ -84,14 +86,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        Universal.agent().register("eUPPfSCR6Kg6dTqI6rQ6qOOIURPN1u12", "171408", new UniversalAgent.RegisterCallback() {
+        Universal.agent().register("W6UMk7poIBau67Y5tugjBpJEaUMF5kMx", "370376", new UniversalAgent.RegisterCallback() {
             @Override
             public void onRegisterSuccess(@NonNull SightCallCredentials sightCallCredentials) {
                 Toast.makeText(MainActivity.this, "Registration success", Toast.LENGTH_LONG).show();
             }
 
-            @Override public void onRegisterFailure() {
+            @Override
+            public void onRegisterFailure() {
                 Toast.makeText(MainActivity.this, "Registration fail", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void fetchUserCases(View v) {
+        UniversalAgent agent = Universal.agent();
+        agent.fetchUsecases(new UniversalAgent.FetchUsecasesCallback() {
+            @Override
+            public void onFetchUsecasesSuccess() {
+                Toast.makeText(MainActivity.this, "Fetch success", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFetchUsecasesFailure() {
+                Toast.makeText(MainActivity.this, "Fetch error", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -101,13 +119,19 @@ public class MainActivity extends AppCompatActivity {
         GuestUsecase usecase = agent.getGuestUsecase();
         GuestInvite invite = GuestInvite.sms(usecase, txtInv.getText().toString()).build();
         agent.inviteGuest(invite, new UniversalAgent.InviteGuestCallback() {
-            @Override public void onInviteGuestSuccess() {
+            @Override
+            public void onInviteGuestSuccess() {
                 Toast.makeText(MainActivity.this, "Invitation success", Toast.LENGTH_LONG).show();
             }
-            @Override public void onInviteGuestFailure() {
+
+            @Override
+            public void onInviteGuestFailure() {
                 Toast.makeText(MainActivity.this, "Invitation error", Toast.LENGTH_LONG).show();
             }
         });
     }
 
+    public void startUrl(View v) {
+        Universal.start(this.txtUrl.getText().toString());
+    }
 }
