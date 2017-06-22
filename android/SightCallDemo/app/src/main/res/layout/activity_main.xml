@@ -23,6 +23,14 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="83dp" />
 
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="fetchUserCases"
+            android:text="Fetch use cases" />
+
         <EditText
             android:id="@+id/txtInv"
             android:layout_width="wrap_content"
@@ -35,14 +43,6 @@
             tools:layout_editor_absoluteY="83dp" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="fetchUserCases"
-            android:text="Fetch use cases" />
-
-        <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,22 +51,6 @@
             android:text="Invitar"
             tools:layout_editor_absoluteX="-14dp"
             tools:layout_editor_absoluteY="16dp" />
-
-        <EditText
-            android:id="@+id/txtURL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="startUrl"
-            android:text="Start" />
 
     </LinearLayout>
 

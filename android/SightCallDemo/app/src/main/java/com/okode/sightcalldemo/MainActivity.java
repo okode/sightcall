@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
         Universal.agent().setDefaultEnvironment(Environment.PPR);
         setContentView(R.layout.activity_main);
         this.txtInv = (EditText) findViewById(R.id.txtInv);
-        this.txtUrl = (EditText) findViewById(R.id.txtURL);
     }
 
     @Override
@@ -50,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    /**
-     * Then declare {@link @net.rtccloud.sdk.Event} methods to receive the corresponding events.
-     */
     @Event
     public void onStatusEvent(UniversalStatusEvent event) {
         switch (event.status()) {
@@ -86,7 +82,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        Universal.agent().register("W6UMk7poIBau67Y5tugjBpJEaUMF5kMx", "370376", new UniversalAgent.RegisterCallback() {
+        if (Universal.agent().isAvailable()) {
+            Toast.makeText(MainActivity.this, "Already registered", Toast.LENGTH_LONG).show();
+            return;
+        }
+        Universal.agent().register("zLjpwkG1MBnVCc8JjhyJLIvKO3xkg4vE", "581057", new UniversalAgent.RegisterCallback() {
             @Override
             public void onRegisterSuccess(@NonNull SightCallCredentials sightCallCredentials) {
                 Toast.makeText(MainActivity.this, "Registration success", Toast.LENGTH_LONG).show();
@@ -100,6 +100,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void fetchUserCases(View v) {
+        if (!Universal.agent().isAvailable()) {
+            Toast.makeText(MainActivity.this, "Register the user before", Toast.LENGTH_LONG).show();
+            return;
+        }
         UniversalAgent agent = Universal.agent();
         agent.fetchUsecases(new UniversalAgent.FetchUsecasesCallback() {
             @Override
@@ -115,6 +119,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void invite(View v) {
+        if (!Universal.agent().isAvailable()) {
+            Toast.makeText(MainActivity.this, "Register the user before", Toast.LENGTH_LONG).show();
+            return;
+        }
         UniversalAgent agent = Universal.agent();
         GuestUsecase usecase = agent.getGuestUsecase();
         GuestInvite invite = GuestInvite.sms(usecase, txtInv.getText().toString()).build();
@@ -129,9 +137,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Invitation error", Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    public void startUrl(View v) {
-        Universal.start(this.txtUrl.getText().toString());
     }
 }

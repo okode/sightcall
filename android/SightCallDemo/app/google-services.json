@@ -1,25 +1,35 @@
 {
   "project_info": {
-    "project_number": "583487669644",
-    "project_id": "sightcalldemo"
+    "project_number": "469933732617",
+    "firebase_url": "https://sightcalldemo-9aba3.firebaseio.com",
+    "project_id": "sightcalldemo-9aba3",
+    "storage_bucket": "sightcalldemo-9aba3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:583487669644:android:75fdf2f0c978ee7b",
+        "mobilesdk_app_id": "1:469933732617:android:75fdf2f0c978ee7b",
         "android_client_info": {
           "package_name": "com.okode.sightcalldemo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "583487669644-jfea0e7pmd2e39cvptskvuvsorqct170.apps.googleusercontent.com",
+          "client_id": "469933732617-ghvgrm6m1ev9ipc9onev4uoeeg32v7ub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.okode.sightcalldemo",
+            "certificate_hash": "83bbaf833693361c0631bc50a46d2dd404631208"
+          }
+        },
+        {
+          "client_id": "469933732617-akkfmdcenbiqldpkjjmd7qa856aokjf4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBx_jUdEHM3Z1NUgbouucB-wN5wazzq9HE"
+          "current_key": "AIzaSyCVsweGh6eduZsoT4scUKxUnzSbCKUSa4E"
         }
       ],
       "services": {
@@ -27,11 +37,16 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "469933732617-akkfmdcenbiqldpkjjmd7qa856aokjf4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
