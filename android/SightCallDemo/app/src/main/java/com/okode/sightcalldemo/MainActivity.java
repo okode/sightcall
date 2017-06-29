@@ -25,7 +25,6 @@ import net.rtccloud.sdk.Event;
 public class MainActivity extends AppCompatActivity {
 
     private EditText txtInv;
-    private EditText txtUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,15 +67,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Event
-    public void onUniversalAgentRegistrationEvent(UniversalAgentRegistrationEvent event) {
-        if (event.isSuccess()) {
-            Toast.makeText(this, "Registration success event", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "Registration failed event", Toast.LENGTH_LONG).show();
-        }
-    }
-
-    @Event
     public void onCallReport(UniversalCallReportEvent e) {
         Log.e("DEMO", "REPORT END");
     }
@@ -86,7 +76,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Already registered", Toast.LENGTH_LONG).show();
             return;
         }
-        Universal.agent().register("zLjpwkG1MBnVCc8JjhyJLIvKO3xkg4vE", "581057", new UniversalAgent.RegisterCallback() {
+        //We get the credentials (token and pin) by invoking a API method with POSTMAN.
+        Universal.agent().register("Z9XIhcEI84rBNCBtpkrLHwJTrr22wPJE", "329862", new UniversalAgent.RegisterCallback() {
             @Override
             public void onRegisterSuccess(@NonNull SightCallCredentials sightCallCredentials) {
                 Toast.makeText(MainActivity.this, "Registration success", Toast.LENGTH_LONG).show();
