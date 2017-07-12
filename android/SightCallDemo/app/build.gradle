@@ -29,8 +29,11 @@ dependencies {
 
     compile 'com.sightcall.universal:universal-sdk:3.1.0'
 
+    compile "com.google.firebase:firebase-core:11.0.1"
+    compile "com.google.firebase:firebase-messaging:11.0.1"
+
     // Urban Airship SDK
-    compile 'com.urbanairship.android:urbanairship-sdk:8.6.+'
+    compile 'com.urbanairship.android:urbanairship-sdk:8.6.1'
     compile 'com.google.android.gms:play-services-gcm:11.0.1'
 
     // Recommended for in-app messaging

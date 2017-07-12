@@ -51,7 +51,6 @@ public class SampleAirshipReceiver extends AirshipReceiver {
     @Override
     protected void onPushReceived(@NonNull Context context, PushMessage message, boolean notificationPosted) {
         Log.i(TAG, "Received push message. Alert: " + message.getAlert() + ". posted notification: " + notificationPosted);
-        this.startCall(message);
     }
 
     @Override
@@ -79,17 +78,6 @@ public class SampleAirshipReceiver extends AirshipReceiver {
     @Override
     protected void onNotificationDismissed(@NonNull Context context, @NonNull NotificationInfo notificationInfo) {
         Log.i(TAG, "Notification dismissed. Alert: " + notificationInfo.getMessage().getAlert() + ". Notification ID: " + notificationInfo.getNotificationId());
-    }
-
-
-    private void startCall(PushMessage message) {
-        if (message.getPushBundle() == null) return;
-        String guestData = (String)message.getPushBundle().get("guest_ready");
-        if (guestData != null) {
-            Type type = new TypeToken<Map<String, String>>(){}.getType();
-            Map<String, String> guestDataMap = new Gson().fromJson(guestData, type);
-            Universal.start(guestDataMap.get("url"));
-        }
     }
 
 }

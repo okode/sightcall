@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         //We get the credentials (token and pin) by invoking a API method with POSTMAN.
-        Universal.agent().register("Z9XIhcEI84rBNCBtpkrLHwJTrr22wPJE", "329862", new UniversalAgent.RegisterCallback() {
+        Universal.agent().register("0jZgg5PAJp1vpM6KjIMr5EPTxgTS1nD7", "526368", new UniversalAgent.RegisterCallback() {
             @Override
             public void onRegisterSuccess(@NonNull SightCallCredentials sightCallCredentials) {
                 Toast.makeText(MainActivity.this, "Registration success", Toast.LENGTH_LONG).show();
