@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Universal.settings().rtccLogger().set(true); // or Logger.verbose();
         Universal.settings().universalLogger().set(true); // or Trace.verbose();
-        Universal.agent().setDefaultEnvironment(Environment.PPR);
+        Universal.settings().defaultEnvironment().set(Environment.PPR);
         setContentView(R.layout.activity_main);
         this.txtInv = (EditText) findViewById(R.id.txtInv);
     }
@@ -126,6 +126,29 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onInviteGuestFailure() {
                 Toast.makeText(MainActivity.this, "Invitation error", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    public void generateURL(View v) {
+        if (!Universal.agent().isAvailable()) {
+            Toast.makeText(MainActivity.this, "Register the user before", Toast.LENGTH_LONG).show();
+            return;
+        }
+        UniversalAgent agent = Universal.agent();
+        GuestUsecase usecase = agent.getGuestUsecase();
+        GuestInvite invite = GuestInvite.url(usecase).build();
+        agent.inviteGuest(invite, new UniversalAgent.InviteGuestUrlCallback() {
+            private String url;
+            @Override public void onInviteGuestUrl(String url) {
+                this.url = url;
+            }
+            @Override public void onInviteGuestSuccess() {
+                /* Now send the url */
+                Toast.makeText(MainActivity.this, "URL generada: " + this.url, Toast.LENGTH_LONG).show();
+            }
+            @Override public void onInviteGuestFailure() {
+                Toast.makeText(MainActivity.this, "Error generando la URL", Toast.LENGTH_LONG).show();
             }
         });
     }
