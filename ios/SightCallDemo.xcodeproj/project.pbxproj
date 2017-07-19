@@ -15,6 +15,10 @@
 		3EEECF9C1EC89D1E0046B3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEECF9A1EC89D1E0046B3A1 /* LaunchScreen.storyboard */; };
 		3EFAC2921EC8A03F00B971A2 /* LSUniversalSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */; };
 		3EFAC2931EC8A03F00B971A2 /* LSUniversalSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F79055691F1F3D43001F3FE6 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79055681F1F3D43001F3FE6 /* AirshipKit.framework */; };
+		F790556A1F1F3DCC001F3FE6 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F79055681F1F3D43001F3FE6 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F7E7937A1F1E337900EB13E3 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E793791F1E337800EB13E3 /* PushKit.framework */; };
+		F7F7B74D1F1F37BA005BFD75 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7F7B74C1F1F37BA005BFD75 /* AirshipConfig.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,6 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F790556A1F1F3DCC001F3FE6 /* AirshipKit.framework in Embed Frameworks */,
 				3EFAC2931EC8A03F00B971A2 /* LSUniversalSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -43,6 +48,11 @@
 		3EEECF9B1EC89D1E0046B3A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EEECF9D1EC89D1E0046B3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LSUniversalSDK.framework; path = Frameworks/LSUniversalSDK.framework; sourceTree = "<group>"; };
+		4A2AABD911F01F1F4E5440E5 /* Pods_SightCallDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightCallDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F715C8811F1E20CE000D9F74 /* SightCallDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SightCallDemo.entitlements; sourceTree = "<group>"; };
+		F79055681F1F3D43001F3FE6 /* AirshipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AirshipKit.framework; path = Carthage/Build/iOS/AirshipKit.framework; sourceTree = "<group>"; };
+		F7E793791F1E337800EB13E3 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
+		F7F7B74C1F1F37BA005BFD75 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F79055691F1F3D43001F3FE6 /* AirshipKit.framework in Frameworks */,
+				F7E7937A1F1E337900EB13E3 /* PushKit.framework in Frameworks */,
 				3EFAC2921EC8A03F00B971A2 /* LSUniversalSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +89,7 @@
 		3EEECF8B1EC89D1E0046B3A1 /* SightCallDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F715C8811F1E20CE000D9F74 /* SightCallDemo.entitlements */,
 				3EEECF8F1EC89D1E0046B3A1 /* AppDelegate.h */,
 				3EEECF901EC89D1E0046B3A1 /* AppDelegate.m */,
 				3EEECF921EC89D1E0046B3A1 /* ViewController.h */,
@@ -86,6 +99,7 @@
 				3EEECF9A1EC89D1E0046B3A1 /* LaunchScreen.storyboard */,
 				3EEECF9D1EC89D1E0046B3A1 /* Info.plist */,
 				3EEECF8C1EC89D1E0046B3A1 /* Supporting Files */,
+				F7F7B74C1F1F37BA005BFD75 /* AirshipConfig.plist */,
 			);
 			path = SightCallDemo;
 			sourceTree = "<group>";
@@ -101,7 +115,10 @@
 		3EFAC28C1EC89E9500B971A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F79055681F1F3D43001F3FE6 /* AirshipKit.framework */,
+				F7E793791F1E337800EB13E3 /* PushKit.framework */,
 				3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */,
+				4A2AABD911F01F1F4E5440E5 /* Pods_SightCallDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,9 +156,12 @@
 					3EEECF881EC89D1E0046B3A1 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = ZQ4562D4C2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
 								enabled = 1;
 							};
 						};
@@ -174,6 +194,7 @@
 				3EEECF9C1EC89D1E0046B3A1 /* LaunchScreen.storyboard in Resources */,
 				3EEECF991EC89D1E0046B3A1 /* Assets.xcassets in Resources */,
 				3EEECF971EC89D1E0046B3A1 /* Main.storyboard in Resources */,
+				F7F7B74D1F1F37BA005BFD75 /* AirshipConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,15 +329,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SightCallDemo/SightCallDemo.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZQ4562D4C2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SightCallDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okode.SightCallDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fc591df4-adc8-4224-8546-3ef2268dd51b";
+				PROVISIONING_PROFILE_SPECIFIER = "SightCall Demo Development";
 			};
 			name = Debug;
 		};
@@ -324,15 +351,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SightCallDemo/SightCallDemo.entitlements;
 				DEVELOPMENT_TEAM = ZQ4562D4C2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SightCallDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okode.SightCallDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "fc591df4-adc8-4224-8546-3ef2268dd51b";
+				PROVISIONING_PROFILE_SPECIFIER = "SightCall Demo Development";
 			};
 			name = Release;
 		};

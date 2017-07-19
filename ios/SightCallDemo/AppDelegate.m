@@ -16,6 +16,14 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Register for remote notifications.
+    [UAirship takeOff];
+    [UAirship push].pushNotificationDelegate = self;
+    [UAirship push].userPushNotificationsEnabled = YES;
+    [UAirship push].defaultPresentationOptions = (UNNotificationPresentationOptionAlert |
+                                                  UNNotificationPresentationOptionBadge |
+                                                  UNNotificationPresentationOptionSound);
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     return YES;
 }
 
@@ -31,5 +39,32 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application { }
 - (void)applicationDidBecomeActive:(UIApplication *)application { }
 - (void)applicationWillTerminate:(UIApplication *)application { }
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSString * deviceTokenString = [[[[deviceToken description]
+                                      stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                     stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                    stringByReplacingOccurrencesOfString: @" " withString: @""];
+    ViewController* viewController = (ViewController*) self.window.rootViewController;
+    [viewController.lsUniversal.agentHandler setNotificationToken: deviceTokenString];
+}
+
+//In your code, a class conforms to the PushKit protocol and receive a notification
+- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type
+{
+    ViewController* viewController = (ViewController*) self.window.rootViewController;
+    if ([viewController.lsUniversal canHandleNotification:payload.dictionaryPayload]) {
+        [viewController.lsUniversal handleNotification:payload.dictionaryPayload];
+    }
+}
+
+- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(PKPushType)type {
+    NSLog(@"Test");
+}
+
+-(void)receivedForegroundNotification:(UANotificationContent *)notificationContent completionHandler:(void (^)(void))completionHandler {
+    NSLog(@"Test");
+}
+
 
 @end
