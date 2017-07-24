@@ -52,7 +52,7 @@
         NSLog(@"Agent already registered!");
         return;
     }
-    [self.lsUniversal.agentHandler registerWithPin:@"532438" andToken:@"aFX2IL6fx4n4TGLGEx3lmLvHu3a0MHhv" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
+    [self.lsUniversal.agentHandler registerWithPin:@"979146" andToken:@"bf5mzeYB1S22TEGA0o5zdDh3KLg3uv76" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
         if (success) {
             NSLog(@"Registration successful!");
         } else {
@@ -68,7 +68,7 @@
     }
     [self.lsUniversal.agentHandler fetchUsecases:^(BOOL success, NSArray<NSObject<LSMAUsecase> *> *usecaselist) {
         if (success) {
-            [self.lsUniversal.agentHandler sendNotificationForUsecase:(LSMAGuestUsecase*)[usecaselist objectAtIndex:0] toPhone:@"649355192" andDisplayName:@"rpanadero" andNotify:^(NSInteger statusCode) {
+            [self.lsUniversal.agentHandler sendNotificationForUsecase:(LSMAGuestUsecase*)[usecaselist objectAtIndex:0] toPhone:@"XXXXXXXXX" andDisplayName:@"rpanadero" andNotify:^(NSInteger statusCode) {
                 if (statusCode == 200) {
                     NSLog(@"Invitation was successful");
                 } else {
