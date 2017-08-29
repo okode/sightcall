@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Universal.settings().rtccLogger().set(true); // or Logger.verbose();
         Universal.settings().universalLogger().set(true); // or Trace.verbose();
-        Universal.settings().defaultEnvironment().set(Environment.PPR);
         setContentView(R.layout.activity_main);
         this.txtInv = (EditText) findViewById(R.id.txtInv);
     }
@@ -39,36 +38,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Universal.register(this);
     }
 
     @Override
     protected void onStop() {
-        Universal.unregister(this);
         super.onStop();
-    }
-
-    @Event
-    public void onStatusEvent(UniversalStatusEvent event) {
-        switch (event.status()) {
-            case INITIALIZING:
-                Log.e("DEMO", "Initializing");
-                break;
-            case CONNECTING:
-                Log.e("DEMO", "Connecting");
-                break;
-            case ACTIVE:
-                Log.e("DEMO", "Active");
-                break;
-            case IDLE:
-                Log.e("DEMO", "Idle");
-                break;
-        }
-    }
-
-    @Event
-    public void onCallReport(UniversalCallReportEvent e) {
-        Log.e("DEMO", "REPORT END");
     }
 
     public void onRegister(View v) {
@@ -77,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         //We get the credentials (token and pin) by invoking a API method with POSTMAN.
-        Universal.agent().register("0jZgg5PAJp1vpM6KjIMr5EPTxgTS1nD7", "526368", new UniversalAgent.RegisterCallback() {
+        Universal.agent().register("xFnvNsdg1ccJIrilutriQ745REfGxkE3", "859204", new UniversalAgent.RegisterCallback() {
             @Override
             public void onRegisterSuccess(@NonNull SightCallCredentials sightCallCredentials) {
                 Toast.makeText(MainActivity.this, "Registration success", Toast.LENGTH_LONG).show();
