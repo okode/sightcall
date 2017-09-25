@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <PushKit/PushKit.h>
 @import AirshipKit;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, PKPushRegistryDelegate, UAPushNotificationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @end
 

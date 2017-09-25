@@ -150,6 +150,9 @@
 		3EEECF811EC89D1E0046B3A1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					textField,
+				);
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Okode;
 				TargetAttributes = {
@@ -342,8 +345,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okode.SightCallDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc591df4-adc8-4224-8546-3ef2268dd51b";
-				PROVISIONING_PROFILE_SPECIFIER = "SightCall Demo Development";
+				PROVISIONING_PROFILE = "f5293ccd-257e-4ee5-aa71-0c91e792bb2e";
+				PROVISIONING_PROFILE_SPECIFIER = "Sightcall Demo DEV";
 			};
 			name = Debug;
 		};
@@ -363,8 +366,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.okode.SightCallDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc591df4-adc8-4224-8546-3ef2268dd51b";
-				PROVISIONING_PROFILE_SPECIFIER = "SightCall Demo Development";
+				PROVISIONING_PROFILE = "f5293ccd-257e-4ee5-aa71-0c91e792bb2e";
+				PROVISIONING_PROFILE_SPECIFIER = "Sightcall Demo DEV";
 			};
 			name = Release;
 		};

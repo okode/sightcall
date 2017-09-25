@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   AirshipConfig.plist
-   SightCallDemo
-
-   Created by Rubén Panadero Navarrete on 19/7/17.
-   Copyright (c) 2017 Okode. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-        <key>developmentAppKey</key>
-        <string>FzaHdO0XR-uSNvJdl2jWhA</string>
-        <key>developmentAppSecret</key>
-        <string>M5qLkLJsQvmecJY7N9D16A</string>
-        <key>productionAppKey</key>
-        <string>Your Production App Key</string>
-        <key>productionAppSecret</key>
-        <string>Your Production App Secret</string>
-        <key>useWKWebView</key>
-        <true/>
-    </dict>
+<dict>
+	<key>inProduction</key>
+	<false/>
+	<key>developmentAppKey</key>
+	<string>FzaHdO0XR-uSNvJdl2jWhA</string>
+	<key>developmentAppSecret</key>
+	<string>M5qLkLJsQvmecJY7N9D16A</string>
+	<key>productionAppKey</key>
+	<string>OOxCAxjbShGQdWokwvAhtA</string>
+	<key>productionAppSecret</key>
+	<string>IiwYmFi0S7-GBOgywgcG8A</string>
+	<key>useWKWebView</key>
+	<true/>
+</dict>
 </plist>
