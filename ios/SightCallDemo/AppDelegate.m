@@ -26,7 +26,6 @@
     return YES;
 }
 
-/*
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
     NSString * deviceTokenString = [[[[deviceToken description]
@@ -37,7 +36,7 @@
     ViewController* viewController = (ViewController*) self.window.rootViewController;
     [viewController.lsUniversal.agentHandler setNotificationToken: deviceTokenString];
 }
-*/
+
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     ViewController* viewController = (ViewController*) self.window.rootViewController;
     if ([viewController.lsUniversal canHandleNotification:userInfo]) {
