@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <LSUniversalSDK/LSUniversalSDK.h>
 
-@interface ViewController : UIViewController <LSUniversalDelegate>
+@interface ViewController : UIViewController <LSUniversalDelegate, LSPictureProtocol>
 @property (strong, nonatomic) LSUniversal* lsUniversal;
 @end
 

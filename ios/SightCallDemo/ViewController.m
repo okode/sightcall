@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.lsUniversal = [[LSUniversal alloc] init];
     self.lsUniversal.delegate = self;
+    [self.lsUniversal setPictureDelegate: self];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer: tap];
@@ -53,6 +54,32 @@
      NSLog(@"callReport");
 }
 
+- (void)savedPicture:(UIImage *_Nullable)image andMetadata:(LSPictureMetadata *_Nullable)metadata {
+    NSLog(@"A picture has been taken: %@", image);
+    if (image != NULL) {
+        [self savePictoreOnDisk:image];
+    }
+}
+
+- (void)savePictoreOnDisk: (UIImage *_Nullable) image {
+    NSData *imageData = UIImagePNGRepresentation(image);
+    
+    NSString* tempDirectoryPath = NSTemporaryDirectory();
+
+    long long now = (long long)([[NSDate date] timeIntervalSince1970] * 1000.0);
+    NSString *imagePath =[tempDirectoryPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%lld.png", now]];
+    
+    NSLog(@"pre writing to file");
+    if (![imageData writeToFile:imagePath atomically:NO])
+    {
+        NSLog(@"Failed to cache image data to disk");
+    }
+    else
+    {
+        NSLog(@"the cachedImagedPath is %@ and size %d",imagePath, [imageData length]);
+    }
+}
+
 - (void)presentDialog: (NSString*) msg {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController * alert = [UIAlertController
@@ -71,7 +98,7 @@
         NSLog(@"Agent already registered!");
         return;
     }
-    [self.lsUniversal.agentHandler registerWithPin:@"448213" andToken:@"KX1xhpZ3DlIneQRO3ICZqyJQBl9ztkVy" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
+    [self.lsUniversal.agentHandler registerWithPin:@"876762" andToken:@"e9OipRnMAlHuzmV2SN9S346RyewFUyye" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
         if (success) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
