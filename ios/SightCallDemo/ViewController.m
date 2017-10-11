@@ -34,8 +34,11 @@
             }
             break;
         case lsConnectionStatus_disconnecting:
-            [self dismissViewControllerAnimated:TRUE completion:nil];
-            break;
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self dismissViewControllerAnimated:TRUE completion:nil];
+                });
+            }
         default: break;
     }
 }
@@ -68,7 +71,7 @@
         NSLog(@"Agent already registered!");
         return;
     }
-    [self.lsUniversal.agentHandler registerWithPin:@"383170" andToken:@"sY3xFoEVuY7JQoWFiuadCz2etdmkrjg4" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
+    [self.lsUniversal.agentHandler registerWithPin:@"448213" andToken:@"KX1xhpZ3DlIneQRO3ICZqyJQBl9ztkVy" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
         if (success) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
@@ -111,9 +114,7 @@
 - (IBAction)startCall:(id)sender {
     UITextField *textValue = (UITextField *)[self.view viewWithTag:4];
     NSString *chkText = textValue.text;
-    [self.lsUniversal startWithString:chkText];
-    [self presentDialog:@"Calling..."];
-    
+    [self.lsUniversal startWithString:chkText];    
 }
 
 -(void)dismissKeyboard

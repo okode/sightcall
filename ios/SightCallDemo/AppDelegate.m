@@ -40,7 +40,10 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     ViewController* viewController = (ViewController*) self.window.rootViewController;
     if ([viewController.lsUniversal canHandleNotification:userInfo]) {
-        [viewController.lsUniversal handleNotification:userInfo];
+        NSString *url = userInfo[@"data"][@"guest_ready"][@"url"];
+        [viewController.lsUniversal startWithString:url];
+        // This method doesn't work properly but it internally does a start with the URL received as parameter (not sure but it is working in this way)
+        // [viewController.lsUniversal handleNotification:userInfo];
     }
 }
 @end
