@@ -16,10 +16,26 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [UAirship takeOff];
+    [UAirship push].userPushNotificationsEnabled = YES;
+    [UAirship push].defaultPresentationOptions = (UNNotificationPresentationOptionAlert |
+                                                  UNNotificationPresentationOptionBadge |
+                                                  UNNotificationPresentationOptionSound);
     PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
     pushRegistry.delegate = self;
     pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
     return YES;
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSString * deviceTokenString = [[[[deviceToken description]
+                                      stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                     stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                    stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
+    ViewController* viewController = (ViewController*) self.window.rootViewController;
+    [viewController.lsUniversal.agentHandler setNotificationToken: deviceTokenString];
 }
 
 #define PushKit Delegate Methods
@@ -36,7 +52,7 @@
                                     stringByReplacingOccurrencesOfString: @" " withString: @""];
 
     ViewController* viewController = (ViewController*) self.window.rootViewController;
-    [viewController.lsUniversal.agentHandler setNotificationToken: deviceTokenString];
+    //[viewController.lsUniversal.agentHandler setNotificationToken: deviceTokenString];
 
 }
 

@@ -98,7 +98,7 @@
         NSLog(@"Agent already registered!");
         return;
     }
-    [self.lsUniversal.agentHandler registerWithPin:@"571956" andToken:@"H3zS7NM2i2i7MgC7EBz0pU1UrUO2J7rf" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
+    [self.lsUniversal.agentHandler registerWithPin:@"880753" andToken:@"lhziNwbvnLLH2hIQV53JsjgyMIRTIHHF" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
         if (success) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
