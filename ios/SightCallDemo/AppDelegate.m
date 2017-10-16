@@ -16,34 +16,37 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Register for remote notifications.
-    [UAirship takeOff];
-    [UAirship push].userPushNotificationsEnabled = YES;
-    [UAirship push].defaultPresentationOptions = (UNNotificationPresentationOptionAlert |
-                                                  UNNotificationPresentationOptionBadge |
-                                                  UNNotificationPresentationOptionSound);
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
+    pushRegistry.delegate = self;
+    pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
     return YES;
 }
 
-- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
-{
-    NSString * deviceTokenString = [[[[deviceToken description]
+#define PushKit Delegate Methods
+
+- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(NSString *)type{
+    if([credentials.token length] == 0) {
+        NSLog(@"voip token NULL");
+        return;
+    }
+    NSLog(@"PushCredentials: %@", credentials.token);
+    NSString * deviceTokenString = [[[[credentials.token description]
                                       stringByReplacingOccurrencesOfString: @"<" withString: @""]
                                      stringByReplacingOccurrencesOfString: @">" withString: @""]
                                     stringByReplacingOccurrencesOfString: @" " withString: @""];
 
     ViewController* viewController = (ViewController*) self.window.rootViewController;
     [viewController.lsUniversal.agentHandler setNotificationToken: deviceTokenString];
+
 }
 
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(NSString *)type
+{
+    NSLog(@"didReceiveIncomingPushWithPayload");
     ViewController* viewController = (ViewController*) self.window.rootViewController;
-    if ([viewController.lsUniversal canHandleNotification:userInfo]) {
-        NSString *url = userInfo[@"data"][@"guest_ready"][@"url"];
-        [viewController.lsUniversal startWithString:url];
-        // This method doesn't work properly but it internally does a start with the URL received as parameter (not sure but it is working in this way)
-        // [viewController.lsUniversal handleNotification:userInfo];
+    if ([viewController.lsUniversal canHandleNotification:payload.dictionaryPayload]) {
+        [viewController.lsUniversal handleNotification:payload.dictionaryPayload];
     }
 }
+
 @end
