@@ -149,6 +149,10 @@
     [self.lsUniversal startWithString:chkText];    
 }
 
+- (IBAction)showLocalNotification:(id)sender {
+    [self showLocalCallNotification: @"prueba"];
+}
+
 - (void) registerCallNotificationCategory {
     if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
@@ -177,6 +181,8 @@
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
             if (error != nil) {
                 NSLog(@"%@", error.localizedDescription);
+                UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+                [center removeDeliveredNotificationsWithIdentifiers:@[@"SIGHTCALL_CALL_ALARM"]];
             }
         }];
     } else {
