@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UserNotifications/UserNotifications.h>
 #import <LSUniversalSDK/LSUniversalSDK.h>
-
-@interface ViewController : UIViewController <LSUniversalDelegate, LSPictureProtocol>
+#import "CallLocalNotification.h"
+@interface ViewController : UIViewController <LSUniversalDelegate, LSPictureProtocol, UNUserNotificationCenterDelegate>
 @property (strong, nonatomic) LSUniversal* lsUniversal;
 @end
 

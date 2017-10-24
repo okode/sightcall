@@ -17,6 +17,7 @@
 		3EFAC2931EC8A03F00B971A2 /* LSUniversalSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EFAC28D1EC89EBA00B971A2 /* LSUniversalSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F79055691F1F3D43001F3FE6 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79055681F1F3D43001F3FE6 /* AirshipKit.framework */; };
 		F790556A1F1F3DCC001F3FE6 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F79055681F1F3D43001F3FE6 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F7D5309B1F972FBF00EB0D3D /* CallLocalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D5309A1F972FBF00EB0D3D /* CallLocalNotification.m */; };
 		F7E7937A1F1E337900EB13E3 /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7E793791F1E337800EB13E3 /* PushKit.framework */; };
 		F7F7B74D1F1F37BA005BFD75 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7F7B74C1F1F37BA005BFD75 /* AirshipConfig.plist */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,8 @@
 		4A2AABD911F01F1F4E5440E5 /* Pods_SightCallDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightCallDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F715C8811F1E20CE000D9F74 /* SightCallDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SightCallDemo.entitlements; sourceTree = "<group>"; };
 		F79055681F1F3D43001F3FE6 /* AirshipKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AirshipKit.framework; path = Carthage/Build/iOS/AirshipKit.framework; sourceTree = "<group>"; };
+		F7D530991F972FBF00EB0D3D /* CallLocalNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CallLocalNotification.h; sourceTree = "<group>"; };
+		F7D5309A1F972FBF00EB0D3D /* CallLocalNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CallLocalNotification.m; sourceTree = "<group>"; };
 		F7E793791F1E337800EB13E3 /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		F7F7B74C1F1F37BA005BFD75 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +103,8 @@
 				3EEECF9D1EC89D1E0046B3A1 /* Info.plist */,
 				3EEECF8C1EC89D1E0046B3A1 /* Supporting Files */,
 				F7F7B74C1F1F37BA005BFD75 /* AirshipConfig.plist */,
+				F7D530991F972FBF00EB0D3D /* CallLocalNotification.h */,
+				F7D5309A1F972FBF00EB0D3D /* CallLocalNotification.m */,
 			);
 			path = SightCallDemo;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7D5309B1F972FBF00EB0D3D /* CallLocalNotification.m in Sources */,
 				3EEECF941EC89D1E0046B3A1 /* ViewController.m in Sources */,
 				3EEECF911EC89D1E0046B3A1 /* AppDelegate.m in Sources */,
 				3EEECF8E1EC89D1E0046B3A1 /* main.m in Sources */,

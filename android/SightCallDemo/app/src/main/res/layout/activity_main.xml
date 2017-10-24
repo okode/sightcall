@@ -31,27 +31,6 @@
             android:onClick="fetchUserCases"
             android:text="Fetch use cases" />
 
-        <EditText
-            android:id="@+id/txtInv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="633197428"
-            tools:layout_editor_absoluteX="96dp"
-            tools:layout_editor_absoluteY="83dp" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="invite"
-            android:text="Invitar"
-            tools:layout_editor_absoluteX="-14dp"
-            tools:layout_editor_absoluteY="16dp" />
-
         <Button
             android:id="@+id/button4"
             android:layout_width="wrap_content"
@@ -59,6 +38,26 @@
             android:layout_weight="1"
             android:onClick="generateURL"
             android:text="Generar URL"
+            tools:layout_editor_absoluteX="-14dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <EditText
+            android:id="@+id/txtInv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="96dp"
+            tools:layout_editor_absoluteY="83dp" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="startURL"
+            android:text="Start call"
             tools:layout_editor_absoluteX="-14dp"
             tools:layout_editor_absoluteY="16dp" />
 
