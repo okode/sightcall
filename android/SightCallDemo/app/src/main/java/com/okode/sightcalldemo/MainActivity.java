@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         //We get the credentials (token and pin) by invoking a API method with POSTMAN.
-        Universal.agent().register("xFnvNsdg1ccJIrilutriQ745REfGxkE3", "859204", new UniversalAgent.RegisterCallback() {
+        Universal.agent().register("ExJq3KB1oG1QBEXIzXddgC3wusvISViF", "988954", new UniversalAgent.RegisterCallback() {
             @Override
             public void onRegisterSuccess(@NonNull SightCallCredentials sightCallCredentials) {
                 Toast.makeText(MainActivity.this, "Registration success", Toast.LENGTH_LONG).show();
@@ -120,10 +120,16 @@ public class MainActivity extends AppCompatActivity {
             @Override public void onInviteGuestSuccess() {
                 /* Now send the url */
                 Toast.makeText(MainActivity.this, "URL generada: " + this.url, Toast.LENGTH_LONG).show();
+                MainActivity.this.txtInv.setText(this.url);
             }
             @Override public void onInviteGuestFailure() {
                 Toast.makeText(MainActivity.this, "Error generando la URL", Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    public void startURL(View v) {
+        String url = this.txtInv.getText() != null ? this.txtInv.getText().toString() : "";
+        Universal.start(this.txtInv.getText().toString());
     }
 }
