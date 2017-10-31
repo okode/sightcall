@@ -103,7 +103,7 @@
         NSLog(@"Agent already registered!");
         return;
     }
-    [self.lsUniversal.agentHandler registerWithPin:@"307076" andToken:@"LafJqLkrQsAZKDhuFUwcFTzOPRzFw0rC" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
+    [self.lsUniversal.agentHandler registerWithPin:@"821552" andToken:@"ttH4BOoFLCnvadYJK9eOA3slfqYnUfIX" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
         if (success) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
@@ -181,9 +181,8 @@
         [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
             if (error != nil) {
                 NSLog(@"%@", error.localizedDescription);
-                UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-                [center removeDeliveredNotificationsWithIdentifiers:@[@"SIGHTCALL_CALL_ALARM"]];
             }
+            [self removeLocalCallNotification];
         }];
     } else {
         UILocalNotification *localNotification = [CallLocalNotification buildUILocalNotification: callUrl];
@@ -191,6 +190,15 @@
     }
 
 }
+
+- (void) removeLocalCallNotification {
+    // Delay execution of my block for 20 seconds.
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        [center removeDeliveredNotificationsWithIdentifiers:@[@"SIGHTCALL_CALL_ALARM"]];
+    });
+}
+
 
 -(void)dismissKeyboard
 {
