@@ -19,9 +19,12 @@
     self.lsUniversal = [[LSUniversal alloc] init];
     self.lsUniversal.delegate = self;
     [self.lsUniversal setPictureDelegate: self];
+    self.lsUniversal.logDelegate = self;
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer: tap];
+    
 }
 
 -(void) connectionEvent:(lsConnectionStatus_t)status
@@ -61,6 +64,7 @@
     }
 }
 
+
 - (void)savePictoreOnDisk: (UIImage *_Nullable) image {
     NSData *imageData = UIImagePNGRepresentation(image);
     
@@ -99,12 +103,8 @@
 }
 
 - (IBAction)registerAgent:(id)sender {
-    if ([self.lsUniversal.agentHandler isAvailable]) {
-        NSLog(@"Agent already registered!");
-        return;
-    }
-    [self.lsUniversal.agentHandler registerWithPin:@"821552" andToken:@"ttH4BOoFLCnvadYJK9eOA3slfqYnUfIX" onSignIn:^(BOOL success, NSInteger statusCode, RegistrationError_t status){
-        if (success) {
+    [self.lsUniversal.agentHandler registerWithCode:@"9e6d035cd99" andReference:@"SightcallDemo" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
+        if (t == LSMARegistrationStatus_registered) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
         } else {
@@ -120,27 +120,27 @@
         [self presentDialog:@"Agent not registered"];
         return;
     }
-    [self.lsUniversal.agentHandler fetchUsecases:^(BOOL success, NSArray<NSObject<LSMAUsecase> *> *usecaselist) {
+    [self.lsUniversal.agentHandler fetchIdentity:^(BOOL success) {
         if (success) {
-            [self.lsUniversal.agentHandler createInvitationForUsecase:(LSMAGuestUsecase*)[usecaselist objectAtIndex:0]  usingSuffix:@"GUEST" andNotify:^(BOOL didSucceed, NSString * _Nullable invite) {
-                if (didSucceed) {
+            [self.lsUniversal.agentHandler createInvitationForUsecase:[self.lsUniversal.agentHandler.identity pincodeUsecases][0] withReference:@"REFERENCE_ID" andNotify:^(LSMAPincodeStatus_t status, NSString * _Nullable inviteURL) {
+                if (status == LSMAPincodeStatus_created) {
                     NSLog(@"Invitation was successful");
                     [self presentDialog:@"Invitation URL generated"];
                     dispatch_async(dispatch_get_main_queue(), ^{
                         UITextField *textValue = (UITextField *)[self.view viewWithTag:4];
-                        [textValue setText:invite];
+                        [textValue setText:inviteURL];
                     });
                 } else {
                     NSLog(@"Invitation sent error!");
                     [self presentDialog:@"Invitation error"];
                 }
             }];
-        } else {
+        }
+        else {
             NSLog(@"Invitation error!");
             [self presentDialog:@"Error getting user cases"];
         }
     }];
-    
 }
 
 - (IBAction)startCall:(id)sender {
@@ -230,6 +230,16 @@
         }
     }
     completionHandler();
+}
+
+//this delegate method is called when a log line is emitted by the SDK
+- (void)logLevel:(NSInteger)level logModule:(NSInteger)module fromMethod:(NSString *)originalSel message:(NSString *)message, ...;
+{
+    va_list pe;
+    va_start(pe, message);
+    NSString *sMessage = [[NSString alloc] initWithFormat:message arguments:pe];
+    va_end(pe);
+    NSLog(@"%@ %@", originalSel, sMessage);
 }
 
 @end
