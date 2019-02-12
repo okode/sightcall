@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        this.registerAgent("9bae3d391bd");
+        this.registerAgent("afda6dbb104");
     }
 
     public void fetchUserCases(View v) {
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFetchUsecasesSuccess() {
                 UniversalAgent agent = Universal.agent();
                 Usecase usecase = agent.usecases().get(0);
-                CreateCode code = CreateCode.url(usecase).reference("REFERENCE_ID").build();
+                CreateCode code = CreateCode.url(usecase).build();
                 Universal.agent().createCode(code, new CreateCodeCallback() {
                     @Override public void onCreateCodeSuccess(Success success) {
                         Code code = success.code();
