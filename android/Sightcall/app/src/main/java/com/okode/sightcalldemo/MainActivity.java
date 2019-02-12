@@ -1,4 +1,4 @@
-package com.okode.sightcall;
+package com.okode.sightcalldemo;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -26,7 +26,7 @@ import com.sightcall.universal.api.Environment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import static com.okode.sightcall.Constants.*;
+import static com.okode.sightcalldemo.Constants.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        this.registerAgent("2401bc90d90");
+        this.registerAgent("9bae3d391bd");
     }
 
     public void fetchUserCases(View v) {

@@ -1,4 +1,4 @@
-package com.okode.sightcall;
+package com.okode.sightcalldemo;
 
 /**
  * Created by rpanadero on 29/6/17.

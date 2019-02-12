@@ -1,4 +1,4 @@
-package com.okode.sightcall;
+package com.okode.sightcalldemo;
 
 import org.junit.Test;
 

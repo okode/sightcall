@@ -1,4 +1,4 @@
-package com.okode.sightcall;
+package com.okode.sightcalldemo;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

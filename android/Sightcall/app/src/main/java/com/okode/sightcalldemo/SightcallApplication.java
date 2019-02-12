@@ -1,4 +1,4 @@
-package com.okode.sightcall;
+package com.okode.sightcalldemo;
 
 import android.app.Application;
 import android.util.Log;
@@ -11,10 +11,10 @@ import com.sightcall.universal.scenario.Scenario;
 import net.rtccloud.sdk.Call;
 import net.rtccloud.sdk.event.Event;
 
-import static com.okode.sightcall.Constants.*;
+import static com.okode.sightcalldemo.Constants.*;
 
 public class SightcallApplication extends Application {
-    
+
     @Override
     public void onCreate() {
         super.onCreate();

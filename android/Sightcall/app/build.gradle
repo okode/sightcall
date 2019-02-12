@@ -9,7 +9,7 @@ repositories {
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.okode.sightcall"
+        applicationId "com.okode.sightcalldemo"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -34,3 +34,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+/* app/build.gradle : must be at the end of the file! */
+apply plugin: 'com.google.gms.google-services'
