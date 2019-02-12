@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sightcall</string>
+    <string name="action_settings">Settings</string>
+    <!--
+    <bool name="universal_feature_fcm">true</bool>
+    <bool name="universal_feature_agent">true</bool>
+    -->
+</resources>
