@@ -1,17 +1,19 @@
 package com.okode.sightcalldemo;
 
 import android.app.Application;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.sightcall.universal.Universal;
 import com.sightcall.universal.event.CallReportEvent;
 import com.sightcall.universal.media.MediaSavedEvent;
 import com.sightcall.universal.scenario.Scenario;
+import com.sightcall.universal.scenario.Step;
 
-import net.rtccloud.sdk.Call;
 import net.rtccloud.sdk.event.Event;
+import net.rtccloud.sdk.event.call.StatusEvent;
 
-import static com.okode.sightcalldemo.Constants.*;
+import static com.okode.sightcalldemo.Constants.TAG;
 
 public class SightcallApplication extends Application {
 
@@ -27,7 +29,7 @@ public class SightcallApplication extends Application {
     }
 
     @Event
-    public void onCallStatusEvent(Call event) {
+    public void onCallStatusEvent(StatusEvent event) {
         Log.i(TAG, event.status().toString());
     }
 
@@ -38,6 +40,11 @@ public class SightcallApplication extends Application {
 
     @Event
     public void onMediaSavedEvent(MediaSavedEvent event) {
+        Log.i(TAG, event.toString());
+    }
+
+    @Event
+    public void onStepStateEvent(@NonNull Step.StateEvent event) {
         Log.i(TAG, event.toString());
     }
 

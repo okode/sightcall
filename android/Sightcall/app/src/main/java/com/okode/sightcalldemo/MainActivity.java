@@ -1,6 +1,9 @@
 package com.okode.sightcalldemo;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,9 +25,6 @@ import com.sightcall.universal.agent.Registration;
 import com.sightcall.universal.agent.UniversalAgent;
 import com.sightcall.universal.agent.Usecase;
 import com.sightcall.universal.api.Environment;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import static com.okode.sightcalldemo.Constants.*;
 
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        this.registerAgent("afda6dbb104");
+        this.registerAgent("4b5a3ac4da6");
     }
 
     public void fetchUserCases(View v) {
@@ -95,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
                         .build();
                 Universal.agent().register(registration, new RegisterCallback() {
                     @Override
-                    public void onRegisterSuccess(@androidx.annotation.NonNull Success success) {
+                    public void onRegisterSuccess(@NonNull Success success) {
                         Toast.makeText(MainActivity.this, "Agent registered", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
-                    public void onRegisterError(@androidx.annotation.NonNull Error error) {
+                    public void onRegisterError(@NonNull Error error) {
                         Toast.makeText(MainActivity.this, "Agent failed", Toast.LENGTH_LONG).show();
                     }
                 });
