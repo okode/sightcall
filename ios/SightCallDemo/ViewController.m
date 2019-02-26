@@ -103,7 +103,7 @@
 }
 
 - (IBAction)registerAgent:(id)sender {
-    [self.lsUniversal.agentHandler registerWithCode:@"9e6d035cd99" andReference:@"SightcallDemo" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
+    [self.lsUniversal.agentHandler registerWithCode:@"659f284ae8b" andReference:@"com.okode.SightCallDemo.s" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
         if (t == LSMARegistrationStatus_registered) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
