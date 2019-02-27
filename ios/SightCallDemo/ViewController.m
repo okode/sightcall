@@ -24,7 +24,6 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer: tap];
-    
 }
 
 -(void) connectionEvent:(lsConnectionStatus_t)status
@@ -64,7 +63,6 @@
     }
 }
 
-
 - (void)savePictoreOnDisk: (UIImage *_Nullable) image {
     NSData *imageData = UIImagePNGRepresentation(image);
     
@@ -103,7 +101,7 @@
 }
 
 - (IBAction)registerAgent:(id)sender {
-    [self.lsUniversal.agentHandler registerWithCode:@"659f284ae8b" andReference:@"com.okode.SightCallDemo.s" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
+    [self.lsUniversal.agentHandler registerWithCode:@"4fbf6c1a29f" andReference:@"com.okode.SightCallDemo.s" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
         if (t == LSMARegistrationStatus_registered) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];
@@ -146,7 +144,7 @@
 - (IBAction)startCall:(id)sender {
     UITextField *textValue = (UITextField *)[self.view viewWithTag:4];
     NSString *chkText = textValue.text;
-    [self.lsUniversal startWithString:chkText];    
+    [self.lsUniversal startWithString:chkText];
 }
 
 - (IBAction)showLocalNotification:(id)sender {

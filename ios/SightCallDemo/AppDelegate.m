@@ -38,6 +38,8 @@
     }];
     
     [[UAirship shared].actionRegistry updateAction:customDLA forEntryWithName:kUADeepLinkActionDefaultRegistryName];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"ppr" forKey:@"kStorePlatform"];
 
     return YES;
 }
