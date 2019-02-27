@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.sightcall.universal.Universal;
 import com.sightcall.universal.event.CallReportEvent;
+import com.sightcall.universal.fcm.messages.GuestReady;
 import com.sightcall.universal.media.MediaSavedEvent;
 import com.sightcall.universal.scenario.Scenario;
 import com.sightcall.universal.scenario.Step;
@@ -46,6 +47,11 @@ public class SightcallApplication extends Application {
     @Event
     public void onStepStateEvent(@NonNull Step.StateEvent event) {
         Log.i(TAG, event.toString());
+    }
+
+    @Event
+    public void onGuestReady(GuestReady event) {
+        Log.i(TAG, "Guest ready");
     }
 
 }

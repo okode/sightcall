@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        this.registerAgent("4b5a3ac4da6");
+        this.registerAgent("ebcb46bec51");
     }
 
     public void fetchUserCases(View v) {
