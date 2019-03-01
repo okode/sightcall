@@ -82,9 +82,9 @@
     }
 }
 
-- (void)callTheGuest:(NSString *)callURL {
+- (void)guestAcceptedCall:(nullable void(^)(BOOL))userResponse {
     NSLog(@"Calling the guest");
-    [self showLocalCallNotification:callURL];
+    userResponse(true);
 }
 
 - (void)presentDialog: (NSString*) msg {
@@ -101,7 +101,7 @@
 }
 
 - (IBAction)registerAgent:(id)sender {
-    [self.lsUniversal.agentHandler registerWithCode:@"4fbf6c1a29f" andReference:@"com.okode.SightCallDemo.s" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
+    [self.lsUniversal.agentHandler registerWithCode:@"4da0c47aeb2" andReference:@"com.okode.SightCallDemo.s" onSignIn:^(LSMARegistrationStatus_t t, NSString * _Nullable tokenID) {
         if (t == LSMARegistrationStatus_registered) {
             NSLog(@"Registration successful!");
             [self presentDialog:@"Registration success"];

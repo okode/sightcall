@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <PushKit/PushKit.h>
 #import "CallLocalNotification.h"
 @import AirshipKit;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, PKPushRegistryDelegate, UAPushNotificationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UAPushNotificationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @end
 
