@@ -13,5 +13,6 @@
 
 @interface ViewController : UIViewController <LSUniversalDelegate, LSPictureProtocol, UNUserNotificationCenterDelegate, LSUniversalLogDelegate>
 @property (strong, nonatomic) LSUniversal* lsUniversal;
+- (void)showLocalCallNotification: (NSDictionary*)sightcallPushPayload;
 @end
 

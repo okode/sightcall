@@ -57,8 +57,9 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo
 fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     NSLog(@"didReceiveIncomingPushWithPayload");
     ViewController* viewController = (ViewController*) self.window.rootViewController;
-    if ([viewController.lsUniversal canHandleNotification:userInfo]) {
-        [viewController.lsUniversal handleNotification:userInfo];
+    NSDictionary* guestReadyPayload = userInfo != NULL ? userInfo[@"guest-ready"] : NULL;
+    if ([viewController.lsUniversal canHandleNotification:userInfo] && guestReadyPayload != NULL) {
+        [viewController showLocalCallNotification:userInfo];
     }
     completionHandler(UIBackgroundFetchResultNewData);
 }

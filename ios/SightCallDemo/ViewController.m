@@ -83,7 +83,7 @@
 }
 
 - (void)guestAcceptedCall:(nullable void(^)(BOOL))userResponse {
-    NSLog(@"Calling the guest");
+    NSLog(@"The guest is calling");
     userResponse(true);
 }
 
@@ -148,7 +148,7 @@
 }
 
 - (IBAction)showLocalNotification:(id)sender {
-    [self showLocalCallNotification: @"prueba"];
+    [self showLocalCallNotification: @{@"test": @"prueba"}];
 }
 
 - (void) registerCallNotificationCategory {
@@ -167,11 +167,11 @@
     }
 }
 
-- (void)showLocalCallNotification: (NSString *)callUrl  {
+- (void)showLocalCallNotification: (NSDictionary*)sightcallPushPayload  {
     [self registerCallNotificationCategory];
     if (SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")) {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        UNMutableNotificationContent* content = [CallLocalNotification buildCallNotificationContent: callUrl];
+        UNMutableNotificationContent* content = [CallLocalNotification buildCallNotificationContent: sightcallPushPayload];
 
         UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:1 repeats:false];
         UNNotificationRequest* request = [UNNotificationRequest
@@ -183,7 +183,7 @@
             [self removeLocalCallNotification];
         }];
     } else {
-        UILocalNotification *localNotification = [CallLocalNotification buildUILocalNotification: callUrl];
+        UILocalNotification *localNotification = [CallLocalNotification buildUILocalNotification: sightcallPushPayload];
         [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
     }
 
@@ -197,6 +197,14 @@
     });
 }
 
+- (void) handleCallLocalNotificationWithSightcallPayload:(NSDictionary *)userInfo {
+    if (userInfo == NULL) {
+        NSLog(@"Tried to handle an empty call local notification");
+        return;
+    }
+    NSDictionary *sightcallPushPayload = userInfo[@"sightcallPushPayload"];
+    [self.lsUniversal handleNotification:sightcallPushPayload];
+}
 
 -(void)dismissKeyboard
 {
@@ -223,12 +231,13 @@
         // Handle actions
         if ([response.actionIdentifier isEqualToString:CallLocalNotificationAcceptActionID])
         {
-            NSString *url = response.notification.request.content.userInfo[@"callUrl"];
-            [self.lsUniversal startWithString:url];
+            [self handleCallLocalNotificationWithSightcallPayload: response.notification.request.content.userInfo];
         }
     }
     completionHandler();
 }
+
+#pragma mark Logger
 
 //this delegate method is called when a log line is emitted by the SDK
 - (void)logLevel:(NSInteger)level logModule:(NSInteger)module fromMethod:(NSString *)originalSel message:(NSString *)message, ...;
