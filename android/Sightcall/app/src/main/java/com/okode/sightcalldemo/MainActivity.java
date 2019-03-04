@@ -25,6 +25,7 @@ import com.sightcall.universal.agent.Registration;
 import com.sightcall.universal.agent.UniversalAgent;
 import com.sightcall.universal.agent.Usecase;
 import com.sightcall.universal.api.Environment;
+import com.sightcall.universal.media.MediaExporter;
 
 import static com.okode.sightcalldemo.Constants.*;
 
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRegister(View v) {
-        this.registerAgent("ebcb46bec51");
+        this.registerAgent("c343e6defc9");
     }
 
     public void fetchUserCases(View v) {
